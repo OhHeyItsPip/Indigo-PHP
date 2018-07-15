@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.5
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2018 at 08:28 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Generation Time: Jul 15, 2018 at 11:30 PM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `miiverse`
+-- Database: `indigo`
 --
 
 -- --------------------------------------------------------
@@ -47,12 +47,20 @@ CREATE TABLE `follows` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `nahs`
+--
+
+CREATE TABLE `nahs` (
   `nah_id` int(8) NOT NULL,
   `nah_post` int(8) NOT NULL,
   `type` tinyint(1) NOT NULL,
   `date_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `nah_by` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `notifs`
@@ -77,11 +85,11 @@ CREATE TABLE `notifs` (
 
 CREATE TABLE `posts` (
   `id` int(8) NOT NULL,
-  `owner` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `owner` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `post_title` int(8) NOT NULL,
   `friend_only` int(1) NOT NULL DEFAULT '0',
-   `admin_only` int(1) NOT NULL DEFAULT '0',
-   `post_type` int(3) NOT NULL DEFAULT '0',
+  `admin_only` int(1) NOT NULL DEFAULT '0',
+  `post_type` int(3) NOT NULL DEFAULT '0',
   `emotion_face` int(1) NOT NULL DEFAULT '0',
   `text` varchar(800) COLLATE utf8mb4_bin NOT NULL,
   `post_image` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
@@ -100,12 +108,11 @@ CREATE TABLE `profiles` (
   `user_reigon` enum('1','2','3','4','5','6','7') COLLATE utf8mb4_bin DEFAULT NULL,
   `birthday` date DEFAULT NULL,
   `fav_post` int(8) DEFAULT NULL,
-  `url` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `url` varchar(1024) COLLATE utf8mb4_bin NOT NULL,
   `organization` varchar(256) COLLATE utf8mb4_bin DEFAULT NULL,
   `yeah_notifs` int(1) NOT NULL DEFAULT '1',
   `user_systems` int(1) NOT NULL DEFAULT '0',
-  `user_skill` int(1) NOT NULL DEFAULT '0',
-  
+  `user_skill` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
@@ -158,8 +165,8 @@ CREATE TABLE `users` (
   `nickname` varchar(16) COLLATE utf8mb4_bin NOT NULL,
   `user_face` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `date_created` datetime NOT NULL,
-  `user_level` int(1) NOT NULL DEFAULT '0'
-    `is_public` int(1) NOT NULL DEFAULT '0'
+  `user_level` int(1) NOT NULL DEFAULT '0',
+  `is_public` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
@@ -174,7 +181,6 @@ CREATE TABLE `yeahs` (
   `type` enum('post','reply') CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT 'post',
   `date_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `yeah_by` int(8) NOT NULL
-  
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -198,6 +204,12 @@ ALTER TABLE `follows`
   ADD KEY `follow_to` (`follow_to`);
 
 --
+-- Indexes for table `nahs`
+--
+ALTER TABLE `nahs`
+  ADD PRIMARY KEY (`nah_id`);
+
+--
 -- Indexes for table `notifs`
 --
 ALTER TABLE `notifs`
@@ -210,45 +222,31 @@ ALTER TABLE `notifs`
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `post_by_id` (`post_by_id`),
-  ADD KEY `posts_ibfk_2` (`post_title`);
-
---
--- Indexes for table `profiles`
---
-ALTER TABLE `profiles`
-  ADD UNIQUE KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `replies`
 --
 ALTER TABLE `replies`
-  ADD PRIMARY KEY (`reply_id`),
-  ADD KEY `reply_post` (`reply_post`),
-  ADD KEY `reply_by_id` (`reply_by_id`);
+  ADD PRIMARY KEY (`reply_id`);
 
 --
 -- Indexes for table `titles`
 --
 ALTER TABLE `titles`
-  ADD PRIMARY KEY (`title_id`),
-  ADD KEY `title_by` (`title_by`);
+  ADD PRIMARY KEY (`title_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `user_name` (`user_name`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `yeahs`
 --
 ALTER TABLE `yeahs`
-  ADD PRIMARY KEY (`yeah_id`),
-  ADD UNIQUE KEY `yeah_post` (`yeah_post`,`type`,`yeah_by`),
-  ADD KEY `yeah_by` (`yeah_by`);
+  ADD PRIMARY KEY (`yeah_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -258,102 +256,49 @@ ALTER TABLE `yeahs`
 -- AUTO_INCREMENT for table `favorite_titles`
 --
 ALTER TABLE `favorite_titles`
-  MODIFY `fav_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `fav_id` int(8) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `follows`
 --
 ALTER TABLE `follows`
-  MODIFY `follow_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `follow_id` int(8) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `notifs`
 --
 ALTER TABLE `notifs`
-  MODIFY `notif_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `notif_id` int(8) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95968679;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `replies`
 --
 ALTER TABLE `replies`
-  MODIFY `reply_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73758014;
+  MODIFY `reply_id` int(8) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `titles`
+--
+ALTER TABLE `titles`
+  MODIFY `title_id` int(8) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2747;
+  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `yeahs`
 --
 ALTER TABLE `yeahs`
-  MODIFY `yeah_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
-
---
--- Constraints for dumped tables
---
-
--- Constraints for table `admin_messages`
---
---
--- Constraints for table `favorite_titles`
---
-ALTER TABLE `favorite_titles`
-  ADD CONSTRAINT `favorite_titles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `favorite_titles_ibfk_2` FOREIGN KEY (`title_id`) REFERENCES `titles` (`title_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `follows`
---
-ALTER TABLE `follows`
-  ADD CONSTRAINT `follows_ibfk_1` FOREIGN KEY (`follow_by`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `follows_ibfk_2` FOREIGN KEY (`follow_to`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `notifs`
---
-ALTER TABLE `notifs`
-  ADD CONSTRAINT `notifs_ibfk_1` FOREIGN KEY (`notif_by`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `notifs_ibfk_2` FOREIGN KEY (`notif_to`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `posts`
---
-ALTER TABLE `posts`
-  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`post_by_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`post_title`) REFERENCES `titles` (`title_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `profiles`
---
-ALTER TABLE `profiles` 
-  ADD CONSTRAINT `profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
--- 
--- Constraints for table `replies`
---
-ALTER TABLE `replies`
-  ADD CONSTRAINT `replies_ibfk_1` FOREIGN KEY (`reply_post`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `replies_ibfk_2` FOREIGN KEY (`reply_by_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `titles`
---
-ALTER TABLE `titles`
-  ADD CONSTRAINT `titles_ibfk_1` FOREIGN KEY (`title_by`) REFERENCES `users` (`user_id`);
-
---
--- Constraints for table `yeahs`
---
-ALTER TABLE `yeahs`
-  ADD CONSTRAINT `yeahs_ibfk_1` FOREIGN KEY (`yeah_by`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `yeah_id` int(8) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
