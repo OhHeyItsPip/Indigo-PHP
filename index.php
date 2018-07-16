@@ -8,7 +8,7 @@ $cinfo = mysqli_query($db,$sql);
  ?>
 <html lang="en" data-google-analytics-tracking-id="UA-68779773-1" prefix="og: http://ogp.me/ns#"><head>
     <meta charset="utf-8">
-    <title>Communities | Pear</title>
+    <title>Communities | Indigo</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/offdevice.css">
 		<script type="text/javascript" src="assets/js/complete-en.js"></script>
 		<link rel="icon" href="Static/img/favicon.png">
