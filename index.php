@@ -3,8 +3,7 @@
 session_start();
 require('lib/connect.php');
 $redirect = '/';
-$sql = "SELECT title_id, title_icon, title_name, title_banner, perm, type FROM titles";
-$cinfo = mysqli_query($db,$sql);
+$cinfo = $db->query("SELECT * FROM titles");
  ?>
 <html lang="en" data-google-analytics-tracking-id="UA-68779773-1" prefix="og: http://ogp.me/ns#"><head>
     <meta charset="utf-8">
@@ -99,7 +98,7 @@ $cinfo = mysqli_query($db,$sql);
           googletag.pubads().enableSingleRequest();
           googletag.enableServices();
         });
-      </script>  </head>
+      </script> </head>
 	  <body class="guest-top guest" data-token="" data-static-root="https://d13ph7xrk1ee39.cloudfront.net/">
     <div id="wrapper">
       <div id="sub-body">
@@ -141,8 +140,8 @@ $cinfo = mysqli_query($db,$sql);
       <input type="text" name="query" placeholder="Search Communities" minlength="2" maxlength="20"><input type="submit" value="q" title="Search">
     </form>
 <div class="post-list-outline" style="text-align: center">
-<h2 class="label">What is Indigo?</h2>
-<p style="width: 90%; display: inine-block; padding: 10px;">Indigo is a semi-family-friendly Miiverse clone created by Chance, Pip, Ben, and Gnarly to give Nova/Closedverse users a more safe and comfortable environment. Indigo was written in PHP.</p>
+<h2 class="label"><?php echo $memo_title; ?></h2>
+<p style="width: 90%; display: inine-block; padding: 10px;"><?php echo $memo_content; ?></p>
 </div>
   <div id="div-gpt-ad-1438756213573-1" class="adx test-adx">
     <span class="adx-label">Advertisement</span>
@@ -193,10 +192,10 @@ $cinfo = mysqli_query($db,$sql);
     </ul>
     <div id="community-guide-footer">
       <div id="guide-menu">
-        <a href="/guide/terms" class="arrow-button"><span>Use of Pear</span></a>
-        <a href="/guide/" class="arrow-button"><span>Pear Code of Conduct</span></a>
+        <a href="/guide/terms" class="arrow-button"><span>Use of Indigo</span></a>
+        <a href="/guide/" class="arrow-button"><span>Indigo Code of Conduct</span></a>
         <a href="/guide/faq" class="arrow-button"><span>Frequently Asked Questions (FAQ)</span></a>
-        <a href="http://www.nintendo.com/wiiu/built-in-software/#/miiverse" class="arrow-button"><span>Details about Pear</span></a>
+        <a href="http://www.nintendo.com/wiiu/built-in-software/#/miiverse" class="arrow-button"><span>Details about Indigo</span></a>
       </div>
     </div>
   </div>
