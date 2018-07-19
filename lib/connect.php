@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 
 $memo_title = "What is Indigo?";
-$memo_content = "A Miiverse clone created by Pip, Chance, Ben, and Gnarly.";
+$memo_content = "Indigo is a social Media Network made by the Indigo Development Team! The site aims to recreate the Miiverse experience, while improving some of Miiverse's flaws.";
 
 function rip() {
   http_response_code(503);
