@@ -1,0 +1,31 @@
+    		#signin_body {
+    		 	padding-top: 40px;
+    		 	text-align: center;
+    		}
+    		#signin_note {
+    			font-size: 12px;
+    			padding-bottom: 8px;
+          color: #131313b8;
+    		}
+    		.post-list-signin {
+  				margin: 5 40 5px 40;
+  				background: #fff;
+  				border: 1px solid rgba(0, 0, 0, 0.1);
+  				overflow: hidden;
+  				-webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2);
+  				-moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2);
+  				-ms-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2);
+  				-o-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2);
+  				box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2);
+  				-webkit-border-radius: 5px;
+  				-moz-border-radius: 5px;
+  				-ms-border-radius: 5px;
+  				-o-border-radius: 5px;
+  				border-radius: 5px;
+  				*zoom: 1;
+			}
+			.post-list-signin:after {
+  				content: "";
+  				display: block;
+  				clear: both;
+			}
