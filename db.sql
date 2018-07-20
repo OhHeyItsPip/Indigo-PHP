@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2018 at 11:30 PM
+-- Generation Time: Jul 20, 2018 at 07:34 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `indigo`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `conversations`
+--
+
+CREATE TABLE `conversations` (
+  `id` int(8) NOT NULL,
+  `type` tinyint(1) NOT NULL,
+  `convo_source` int(8) NOT NULL,
+  `convo_target` int(8) NOT NULL,
+  `created` datetime(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -45,6 +59,33 @@ CREATE TABLE `follows` (
   `follow_by` int(8) NOT NULL,
   `follow_to` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `friendships`
+--
+
+CREATE TABLE `friendships` (
+  `id` int(8) NOT NULL,
+  `friend_id` int(8) NOT NULL,
+  `friend_target` int(8) NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `latest` datetime(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_convos`
+--
+
+CREATE TABLE `group_convos` (
+  `id` int(8) NOT NULL,
+  `convo_id` int(8) NOT NULL,
+  `user_target` int(8) NOT NULL,
+  `created` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -110,6 +151,7 @@ CREATE TABLE `profiles` (
   `fav_post` int(8) DEFAULT NULL,
   `url` varchar(1024) COLLATE utf8mb4_bin NOT NULL,
   `organization` varchar(256) COLLATE utf8mb4_bin DEFAULT NULL,
+  `nnid` varchar(16) COLLATE utf8mb4_bin NOT NULL,
   `yeah_notifs` int(1) NOT NULL DEFAULT '1',
   `user_systems` int(1) NOT NULL DEFAULT '0',
   `user_skill` int(1) NOT NULL DEFAULT '0'
@@ -164,7 +206,7 @@ CREATE TABLE `users` (
   `user_pass` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `nickname` varchar(16) COLLATE utf8mb4_bin NOT NULL,
   `user_face` varchar(255) COLLATE utf8mb4_bin NOT NULL,
-  `date_created` datetime NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_level` int(1) NOT NULL DEFAULT '0',
   `is_public` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
@@ -188,6 +230,12 @@ CREATE TABLE `yeahs` (
 --
 
 --
+-- Indexes for table `conversations`
+--
+ALTER TABLE `conversations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `favorite_titles`
 --
 ALTER TABLE `favorite_titles`
@@ -202,6 +250,18 @@ ALTER TABLE `follows`
   ADD PRIMARY KEY (`follow_id`),
   ADD UNIQUE KEY `follow_by` (`follow_by`,`follow_to`),
   ADD KEY `follow_to` (`follow_to`);
+
+--
+-- Indexes for table `friendships`
+--
+ALTER TABLE `friendships`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `group_convos`
+--
+ALTER TABLE `group_convos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `nahs`
@@ -253,6 +313,12 @@ ALTER TABLE `yeahs`
 --
 
 --
+-- AUTO_INCREMENT for table `conversations`
+--
+ALTER TABLE `conversations`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `favorite_titles`
 --
 ALTER TABLE `favorite_titles`
@@ -263,6 +329,18 @@ ALTER TABLE `favorite_titles`
 --
 ALTER TABLE `follows`
   MODIFY `follow_id` int(8) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `friendships`
+--
+ALTER TABLE `friendships`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `group_convos`
+--
+ALTER TABLE `group_convos`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `notifs`
