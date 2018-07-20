@@ -16,5 +16,15 @@ if(!$db) {
 	rip();
 }
 
+if(isset($_SESSION['loggedin'])) {
+
+	$get_user = $db->query("SELECT * FROM users WHERE user_id = ".$_SESSION['user_id']);
+	$user = mysqli_fetch_array($get_user);
+
+} else {
+	$_SESSION['loggedin'] = false;
+	$_SESSION['user_id'] = 0;
+}
+
 @$db->query('SET time_zone = "-4:00";') || rip();
 date_default_timezone_set('America/New_York');
