@@ -18,7 +18,6 @@ $cinfo = $db->query("SELECT * FROM titles");
     <meta name="apple-mobile-web-app-title" content="Miiverse">
     <meta name="description" content="Miiverse is a service that lets you communicate with other players from around the world. It is accessible via Wii U and systems in the Nintendo 3DS family.">
     <meta name="keywords" content="Miiverse,ミーバース,任天堂,Nintendo,Wii U,3DS">
-
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:locale:alternate" content="es_LA">
@@ -39,8 +38,6 @@ $cinfo = $db->query("SELECT * FROM titles");
     <meta property="og:site_name" content="Miiverse | Nintendo">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:domain" content="miiverse.nintendo.net">
-
-    
     <link rel="alternate" hreflang="x-default" href="https://miiverse.nintendo.net/">      <link rel="alternate" hreflang="ja-JP" href="https://miiverse.nintendo.net/?locale.lang=ja-JP">
           <link rel="alternate" hreflang="en-US" href="https://miiverse.nintendo.net/?locale.lang=en-US">
           <link rel="alternate" hreflang="es-MX" href="https://miiverse.nintendo.net/?locale.lang=es-MX">
@@ -105,7 +102,7 @@ $cinfo = $db->query("SELECT * FROM titles");
         <menu id="global-menu">
          <li id="global-menu-logo"><h1><a href="/"><img src="assets/img/main-logo.png" alt="Miiverse" style="width:105px;height:40px;"></a></h1></li>
           <li id="global-menu-login">
-            <form id="login_form" action="/auth/forward" method="post">
+            <form id="login_form" action="/signin" method="post">
               <input type="hidden" name="location" value="/">
               <input type="image" alt="Sign in" src="assets/img/signin_base.png">
             </form>
@@ -141,7 +138,12 @@ $cinfo = $db->query("SELECT * FROM titles");
     </form>
 <div class="post-list-outline" style="text-align: center">
 <h2 class="label"><?php echo $memo_title; ?></h2>
-<p style="width: 90%; display: inine-block; padding: 10px;"><?php echo $memo_content; ?></p>
+<p style="width: 90%; display: inine-block; padding: 10px;"><?php echo $memo_content;
+if(isset($_SESSION['loggedin'])) {
+ echo '<p>What\'s up Nigga you are now signed in as '.$user['user_name'].'!!! Congrats!!!</p>';
+ }
+ ?></p>
+
 </div>
   <div id="div-gpt-ad-1438756213573-1" class="adx test-adx">
     <span class="adx-label">Advertisement</span>
@@ -182,7 +184,7 @@ $cinfo = $db->query("SELECT * FROM titles");
 '; }
 			}
 			?>
-<a href="/web/20160425095352/https://miiverse.nintendo.net/communities/categories/3ds_all" class="big-button">Show More</a>
+<a href="/communities/all" class="big-button">Show More</a>
         </ul>
       </div>
       <div>
