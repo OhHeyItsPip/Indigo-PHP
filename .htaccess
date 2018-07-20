@@ -1,0 +1,8 @@
+php_value display_errors 1
+
+RewriteEngine on
+
+RewriteRule ^signup$ signup.php
+RewriteRule ^signin$ signin.php
+
+php_value date.timezone "America/New_York"
