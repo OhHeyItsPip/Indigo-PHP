@@ -139,7 +139,7 @@ $cinfo = $db->query("SELECT * FROM titles");
 <div class="post-list-outline" style="text-align: center">
 <h2 class="label"><?php echo $memo_title; ?></h2>
 <p style="width: 90%; display: inine-block; padding: 10px;"><?php echo $memo_content;
-if(isset($_SESSION['loggedin'])) {
+if($_SESSION['loggedin'] == true) {
  echo '<p>What\'s up Nigga you are now signed in as '.$user['user_name'].'!!! Congrats!!!</p>';
  }
  ?></p>
