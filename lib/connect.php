@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 
 $memo_title = "What is Indigo?";
-$memo_content = "Indigo is a social Media Network made by the Indigo Development Team! The site aims to recreate the Miiverse experience, while improving some of Miiverse's flaws.";
+$memo_content = "Indigo is a social Media network made by the Indigo Development Team! The site aims to recreate Miiverse's best aspects, while improving some of it's flaws.";
 
 function rip() {
   http_response_code(503);
@@ -28,3 +28,4 @@ if(isset($_SESSION['loggedin'])) {
 
 @$db->query('SET time_zone = "-4:00";') || rip();
 date_default_timezone_set('America/New_York');
+?>
