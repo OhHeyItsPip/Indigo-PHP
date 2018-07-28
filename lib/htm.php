@@ -54,9 +54,8 @@ function form_top_bar($cvid, $nickname, $pfp, $page) {
 	<li><a href="/account" class="symbol my-menu-profile-setting"><span>Account Settings</span></a></li>	
 	<li><a class="symbol my-menu-info" href="/news"><span>News Hub</span></a></li>
   <li><a href="/rules" class="symbol my-menu-guide"><span>Code of Conduct</span></a></li>
-	'.($user['user_level'] > 0 ? '<li><a class="symbol my-menu-miiverse-setting" href="/database.php"><span>Indigo DataBase</span></a></li>' : '').'
-	<li><a href="/logout''" class="symbol my-menu-guide"><span>Log Out</span></a></li>
-	</menu>';
+	'.($user['user_level'] > 0 ? '<li><a class="symbol my-menu-miiverse-setting" href="/database.php"><span>Indigo DataBase</span></a></li>' : '').
+	'</menu>';
 	$html7 = '</li>';
 	$finals = "$html1 $html2 $html3 $activity $html4 $html5 $html6 $html7";
 	return $finals;
@@ -64,16 +63,9 @@ function form_top_bar($cvid, $nickname, $pfp, $page) {
 
 function ftbnli($page) {
 		$html1 = '<menu id="global-menu">
-	<li id="global-menu-logo"><h1><a href="/"><img src="assets/img/main-logo.png" alt="Miiverse" width="165" height="30"></a></h1></li>
+<li id="global-menu-logo"><h1><a href="/"><img src="assets/img/main-logo.png" alt="Miiverse" style="width:115px;height:35px;"></a></h1></li>
 	<li id="global-menu-list">
 	<ul>';
-
-	if($page == 'communities') {
-	$html2 = '<li id="global-menu-community" class="selected" align="right"><a href="/" class="symbol"><span>Communities</span></a></li>';
-	} else {
-	$html2 = '<li id="global-menu-community" align="right"><a href="/" class="symbol"><span>Communities</span></a></li>';
-	}
-
 	$html3 = '<li id="global-menu-login">
             <form id="login_form" action="/auth/forward" method="post">
               <input type="hidden" name="location" value="/">
@@ -84,7 +76,7 @@ function ftbnli($page) {
       </div>
 	';
 
-	$finals = "$html1 $html2 $html3";
+	$finals = "$html1 $html3";
 
 	return $finals;
 }
