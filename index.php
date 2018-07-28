@@ -2,66 +2,15 @@
 // defines variables
 session_start();
 require('lib/connect.php');
+include('lib/htm.php');
 $redirect = '/';
 $cinfo = $db->query("SELECT * FROM titles");
  ?>
-<html lang="en" data-google-analytics-tracking-id="UA-68779773-1" prefix="og: http://ogp.me/ns#"><head>
-    <meta charset="utf-8">
-    <title>Communities | Indigo</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/offdevice.css">
-		<script type="text/javascript" src="assets/js/complete-en.js"></script>
-		<link rel="icon" href="Static/img/favicon.png">
-    <meta http-equiv="content-style-type" content="text/css">
-    <meta http-equiv="content-script-type" content="text/javascript">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-title" content="Miiverse">
-    <meta name="description" content="Miiverse is a service that lets you communicate with other players from around the world. It is accessible via Wii U and systems in the Nintendo 3DS family.">
-    <meta name="keywords" content="Miiverse,ミーバース,任天堂,Nintendo,Wii U,3DS">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="ja_JP">
-    <meta property="og:locale:alternate" content="es_LA">
-    <meta property="og:locale:alternate" content="fr_CA">
-    <meta property="og:locale:alternate" content="pt_BR">
-    <meta property="og:locale:alternate" content="en_GB">
-    <meta property="og:locale:alternate" content="fr_FR">
-    <meta property="og:locale:alternate" content="es_ES">
-    <meta property="og:locale:alternate" content="de_DE">
-    <meta property="og:locale:alternate" content="it_IT">
-    <meta property="og:locale:alternate" content="nl_NL">
-    <meta property="og:locale:alternate" content="pt_PT">
-    <meta property="og:locale:alternate" content="ru_RU">
-    <meta property="og:title" content="Miiverse | Nintendo">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://miiverse.nintendo.net/">
-    <meta property="og:description" content="Miiverse is a service that lets you communicate with other players from around the world. It is accessible via Wii U and systems in the Nintendo 3DS family.">
-    <meta property="og:site_name" content="Miiverse | Nintendo">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:domain" content="miiverse.nintendo.net">
-    <link rel="alternate" hreflang="x-default" href="https://miiverse.nintendo.net/">      <link rel="alternate" hreflang="ja-JP" href="https://miiverse.nintendo.net/?locale.lang=ja-JP">
-          <link rel="alternate" hreflang="en-US" href="https://miiverse.nintendo.net/?locale.lang=en-US">
-          <link rel="alternate" hreflang="es-MX" href="https://miiverse.nintendo.net/?locale.lang=es-MX">
-          <link rel="alternate" hreflang="fr-CA" href="https://miiverse.nintendo.net/?locale.lang=fr-CA">
-          <link rel="alternate" hreflang="pt-BR" href="https://miiverse.nintendo.net/?locale.lang=pt-BR">
-          <link rel="alternate" hreflang="en-GB" href="https://miiverse.nintendo.net/?locale.lang=en-GB">
-          <link rel="alternate" hreflang="fr-FR" href="https://miiverse.nintendo.net/?locale.lang=fr-FR">
-          <link rel="alternate" hreflang="es-ES" href="https://miiverse.nintendo.net/?locale.lang=es-ES">
-          <link rel="alternate" hreflang="de-DE" href="https://miiverse.nintendo.net/?locale.lang=de-DE">
-          <link rel="alternate" hreflang="it-IT" href="https://miiverse.nintendo.net/?locale.lang=it-IT">
-          <link rel="alternate" hreflang="nl-NL" href="https://miiverse.nintendo.net/?locale.lang=nl-NL">
-          <link rel="alternate" hreflang="pt-PT" href="https://miiverse.nintendo.net/?locale.lang=pt-PT">
-          <link rel="alternate" hreflang="ru-RU" href="https://miiverse.nintendo.net/?locale.lang=ru-RU">
-    
-    <link rel="shortcut icon" href="https://d13ph7xrk1ee39.cloudfront.net/img/favicon.ico?mM9KNw_M04SIP2y9VGgdNA">
-    <link rel="apple-touch-icon" sizes="57x57" href="https://d13ph7xrk1ee39.cloudfront.net/img/apple-touch-icon-57x57.png?Ag2tdrIcl30F8RewVb7MpA">
-    <link rel="apple-touch-icon" sizes="114x114" href="https://d13ph7xrk1ee39.cloudfront.net/img/apple-touch-icon-114x114.png?np5stZwxPtIFygwO41QXAA">
-    <link rel="apple-touch-icon" sizes="72x72" href="https://d13ph7xrk1ee39.cloudfront.net/img/apple-touch-icon-72x72.png?s4ECPF96pvErA7s03oG3gQ">
-    <link rel="apple-touch-icon" sizes="144x144" href="https://d13ph7xrk1ee39.cloudfront.net/img/apple-touch-icon-144x144.png?Cp5sZwpS_1aly-SFq8AeIA">
-    <link rel="stylesheet" type="text/css" href="https://d13ph7xrk1ee39.cloudfront.net/css/offdevice.css?uv6UeRmkC2ICaNONOZ_PvQ">
-    <script async="" type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script><script src="https://d13ph7xrk1ee39.cloudfront.net/js/complete-en.js?aiDA7nbtdb0KKTTDYi619A"></script>
-      
-      <script type="text/javascript">
-        var googletag = googletag || {};
+<?php 
+formHeaders('Hubs | Indigo');
+?>
+
+<script>var googletag = googletag || {};
         googletag.cmd = googletag.cmd || [];
         (function() {
           var gads = document.createElement('script');
@@ -96,39 +45,15 @@ $cinfo = $db->query("SELECT * FROM titles");
           googletag.enableServices();
         });
       </script> </head>
-	  <body class="guest-top guest" data-token="" data-static-root="https://d13ph7xrk1ee39.cloudfront.net/">
-    <div id="wrapper">
-      <div id="sub-body">
-        <menu id="global-menu">
-         <li id="global-menu-logo"><h1><a href="/"><img src="assets/img/main-logo.png" alt="Miiverse" style="width:105px;height:40px;"></a></h1></li>
-          <li id="global-menu-login">
-            <form id="login_form" action="/signin" method="post">
-              <input type="hidden" name="location" value="/">
-              <input type="image" alt="Sign in" src="assets/img/signin_base.png">
-            </form>
-          </li>
-        </menu>
-      </div>
-      
+  <div id="wrapper" <?php if(!$_SESSION['loggedin']) { echo 'class="guest"'; } ?>>
+<div id="sub-body">
+  <?php
+  if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+  echo form_top_bar($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_face'], 'communities');
+  } else { 
+  echo ftbnli('communities'); }
+        ?>
       <div id="main-body">
-
-<div id="about">
-  <div id="about-inner">
-    <div id="about-text">
-      <h2 class="welcome-message">Welcome to Indigo!</h2>
-      <p>Indigo is a Miiverse clone written by Chance, Ben, Pip, and Gnarly. We have a responsible administration, group messaging, Hubs to talk about games, media, or history, and more. </p>
-      <div class="guest-terms-content">
-        <a class="symbol guest-terms-link test-guest-terms " href="/guide/terms">Use of Indigo</a>
-		<div class="guest-close-announce-content">
-<div class="guest-announce-content">
-        <a class="symbol guest-close-announce-link test-guest-announce" href="/titles/8">Indigo Announcements</a>
-      </div>
-      </div>
-      </div>
-    </div>
-    <img src="assets/img/tutorial-activity-feed.png">
-  </div>
-</div>
 <div class="body-content" id="community-top" data-region="USA">
   <div class="community-main">
 </div>
@@ -138,20 +63,9 @@ $cinfo = $db->query("SELECT * FROM titles");
     </form>
 <div class="post-list-outline" style="text-align: center">
 <h2 class="label"><?php echo $memo_title; ?></h2>
-<p style="width: 90%; display: inine-block; padding: 10px;"><?php echo $memo_content;
-if($_SESSION['loggedin'] == true) {
- echo '<p>What\'s up Nigga you are now signed in as '.$user['user_name'].'!!! Congrats!!!</p>';
- }
- ?></p>
+<p style="width: 90%; display: inine-block; padding: 10px;"><?php echo $memo_content; ?></p>
 
 </div>
-  <div id="div-gpt-ad-1438756213573-1" class="adx test-adx">
-    <span class="adx-label">Advertisement</span>
-  <script type="text/javascript">
-  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438756213573-1'); });
-  </script>
-  </div>
-
     <div id="identified-user-banner">
       <a href="/identified_user_posts?view_region_id=2" data-pjax="#body" class="list-button us">
         <span class="title">Get the latest news here!</span>
@@ -162,8 +76,15 @@ if($_SESSION['loggedin'] == true) {
       </div>
       <div class="digest test-topic-digest">
       </div>
-    </div>  </div>
-
+    </div>  
+  <div id="div-gpt-ad-1438756213573-1" class="adx test-adx">
+    <span class="adx-label">Advertisement</span>
+  <script type="text/javascript">
+  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438756213573-1'); });
+  </script>
+  </div>
+</div>
+</div>
   <div class="community-main">
 
       <h3 class="community-title symbol">Popular Hubs</h3>
@@ -177,14 +98,14 @@ if($_SESSION['loggedin'] == true) {
   <div class="community-list-body">
   <span class="icon-container"><img src="'.$infoc['title_icon'].'" class="icon"></span>
   <div class="body">
-      <a class="title" href="/titles/'.$infoc['title_id'].'" tabindex="-1">'.$infoc['title_name'].'</a>
-	<span class="platform-tag"><img src="Static/img/platform-tag-wiiu-3ds.png"</span>
-	<span class="text">Wii U/3DS Games</span>
+      <a class="title" href="/titles/'.$infoc['title_id'].'" tabindex="-1">'.$infoc['title_name'].' Hub</a>
+	<span class="platform-tag"><img src="assets/img/general-tag.png"</span>
+	<span class="text">General Hubs</span>
       </li>
 '; }
 			}
 			?>
-<a href="/communities/all" class="big-button">Show More</a>
+<a href="/hubs/all" class="big-button">Show More</a>
         </ul>
       </div>
       <div>
