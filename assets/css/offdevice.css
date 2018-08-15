@@ -1,10 +1,14 @@
 @charset 'UTF-8';
 @font-face {
   font-family: 'MiiverseSymbols';
-  src: url('/web/20171026155822im_/https://d13ph7xrk1ee39.cloudfront.net/img/font/MiiverseSymbols-Regular.eot?g4khEYcfqJ5alM6eFiV-LA');
-  src: url('/web/20171026155822im_/https://d13ph7xrk1ee39.cloudfront.net/img/font/MiiverseSymbols-Regular.eot?g4khEYcfqJ5alM6eFiV-LA#iefix') format('embedded-opentype'), url('/web/20171026155822im_/https://d13ph7xrk1ee39.cloudfront.net/img/font/MiiverseSymbols-Regular.woff?RkxShjFofefIEsBVAiKv6Q') format('woff'), url('/web/20171026155822im_/https://d13ph7xrk1ee39.cloudfront.net/img/font/MiiverseSymbols-Regular.ttf?W8NeiSCock3J-MCV6h9wVA') format('truetype');
+  src: url('MiiverseSymbols-Regular.woff');
+  src: url('MiiverseSymbols-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+  @font-face { 
+  font-family: 'SanFrancisco-Medium';
+  src: url('SanFranciscoText-regular.otf') format('opentype');
 }
 body {
   position: relative;
@@ -14,7 +18,7 @@ body {
   margin: 0;
   padding: 0;
   color: #323232;
-  background: #eee url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwBAMAAADMe/ShAAAAHlBMVEX29vb09PTy8vL19fXz8/Px8fHw8PDv7+/u7u739/dHdNvrAAACSElEQVR4AezYNX7DMBiGcafcKTRlC0hdy7T1Z7iAcS5YOkEl38DeQlNOW24YX63fsxr+Ztm2RmvjMiu2bWbOXPmjtW2A7S8YKlfMCK4lKPzeMoJvYhROHYIJno9gggkmmGCCCSaYYIIJJphgggkmGP/PZQZf4XDHCK5JFFYtE7hXkwWYap0awEMPh8NHA7jPNQprv2EAH5zh8MsTDo9vY/xGxuCeLXFYsVMY7nNZwCm/AcM3scZhnTooPBwfafBYP4JwiZvBfgWDh7Xxkc71DmXjY916hOAbLrMxK7ZuTOfKdxC4ZMf6z1Ui2iEh/2Sdssru8L4dy+zXFVGbuVtntyPxK+cqZRc7wr1Ll0v95/qser1DVZv/yVr5bv10Bczq+ML4Rl/als/ww4WfJptbwuACMbgwhaUVfkvgt6LU1icpdkAAAADAEEz/1EKshHOBgMAnwZ7gNgG9DEwybTKpyZiLRCT6ItqUCJuIYqKoosaJlEsMJBki+ZOElwRfkpqSuElcS9Qnd4LcGN3enRUACMRQDFSDJRzg3wIKuNnNzygYA83rGbx9g1cwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPB/bFgfx7ZH4TWJ7DB0W9w5hwcdgen7MHxfp8r9IFGkKQEEU6WHWWhVZaWZTFdlg9mwWSdiAZRbJABB+FzkHoHcXuQ82cDBtlkQzVSkc1yZEMk2fRKNjZTzetkg0LlhJK1KjAYDAaDwWAwGAwGg8FgcAD3L/H6J4DLS/j67eEOl9GYoKbAV2YAAAAASUVORK5CYII=');
+  background: linear-gradient(to bottom right, white, gray);
 }
 h1,
 h2,
@@ -61,8 +65,10 @@ img {
 input,
 label,
 button {
+  font-family: 'SanFrancisco-Medium';
   cursor: pointer;
 }
+
 .none {
   display: none !important;
 }
@@ -122,17 +128,17 @@ body {
   text-decoration: underline;
 }
 html body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-family: 'SanFrancisco-Medium', sans-serif;
 }
 html.os-win body {
-  font-family: 'Helvetica', 'Arial', 'Meiryo', 'メイリオ', sans-serif;
+  font-family: 'SanFrancisco-Medium', 'Meiryo', 'メイリオ', sans-serif;
 }
 html.os-mac body {
-  font-family: 'Helvetica', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', sans-serif;
+  font-family: 'SanFrancisco-Medium', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', sans-serif;
 }
 html.os-win form input,
 html.os-win button {
-  font-family: 'Helvetica', 'Arial', 'Meiryo', 'メイリオ', sans-serif;
+  font-family:'SanFrancisco-Medium', 'Meiryo', 'メイリオ', sans-serif;
 }
 .symbol:before {
   font-family: 'MiiverseSymbols', sans-serif !important;
@@ -157,7 +163,7 @@ body {
   margin: auto 0;
   text-align: left;
   background-color: #f4f4f4;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAArUlEQVQoFYWQuwrCQBBFd42FlaYQRMRCO3vBNpA/8HNtBbt04gcItnaKoLKegRnYTRYzcLjzuLNh4kMILooh+SeqO6kYJOawhzE0cIBsDLRboRPwsIUFZMMWTM1UWNJWMx4ZPHV4Rq9to9U+OlpeHcHDhjmNF3LzHc01yBdPEOwvkXdiQ6fW7gp9QWM3aD+RWVI5N5X638KF+VuXvqjUru+GEs8SbnCH3gXxJPEDtBsiPW8IwCQAAAAASUVORK5CYII=');
+  background: lavender;
   background-attachment: fixed;
 }
 #sub-body {
@@ -189,14 +195,14 @@ body {
   content: "";
   display: block;
   clear: both;
-}
+} 
 .main-column {
   width: 625px;
   margin: 0 auto;
 }
 #sidebar + .main-column {
   float: right;
-}
+} 
 #sidebar {
   width: 320px;
   float: left;
@@ -4597,7 +4603,7 @@ div#activity-feed-tutorial.no-content p.tleft {
 }
 .platform-tag img {
   width: 58px;
-  height: 12px;
+  height: 16px;
 }
 #community-top .platform-logo {
   float: right;
