@@ -19,7 +19,7 @@ function form_top_bar($cvid, $nickname, $pfp, $page) {
 		global $userid;
 	}
 
-	$html1 = '<menu id="global-menu"><li id="global-menu-logo"><h1><a href="/"><img src="assets/img/main-logo.png" alt="Miiverse" style="width:115px;height:35px;></a></h1></li><li id="global-menu-list">
+	$html1 = '<menu id="global-menu"><li id="global-menu-logo"><h1><a href="/"><img src="assets/img/main-logo.png" alt="Miiverse" style="width:115px;height:40px;></a></h1></li><li id="global-menu-list">
 	<ul>';
 	if($page == 'user') {
 		if($cvid == $userid) {
@@ -31,17 +31,17 @@ function form_top_bar($cvid, $nickname, $pfp, $page) {
 	$html2 = '<li id="global-menu-mymenu"><a href="/users/'. $cvid .'"><span class="icon-container ';
 	}
   if($page == 'feed') {
-    $activity = '<li id="global-menu-feed" class="selected"><a href="/feed" class="symbol"><span>Activity Feed</span></a></li>';
+    $activity = '<li id="global-menu-feed" class="selected"><a href="/feed" class="symbol"><span>News Feed</span></a></li>';
   } else {
-    $activity = '<li id="global-menu-feed"><a href="/feed" class="symbol"><span>Activity Feed</span></a></li>';
+    $activity = '<li id="global-menu-feed"><a href="/feed" class="symbol"><span>News Feed</span></a></li>';
   }
 				 if($user[''] > 2) {$html3 = 'official-user"><img src="'.$pfp.'"></span><span>User Page</span></a></li>';} else {
 					$html3 = '"><img src="'.$pfp.'"></span><span>User Page</span></a></li>';
 				}
 			if($page == 'communities') {
-	$html4 = '<li id="global-menu-community" class="selected"><a href="/" class="symbol"><span>Hubs</span></a></li>';
+	$html4 = '<li id="global-menu-community" class="selected"><a href="/" class="symbol"><span>Main Hubs</span></a></li>';
 	} else {
-	$html4 = '<li id="global-menu-community"><a href="/" class="symbol"><span>Hubs</span></a></li>';
+	$html4 = '<li id="global-menu-community"><a href="/" class="symbol"><span>Main Hubs</span></a></li>';
 	}
 	if($page == 'updates') {
 	$html5 = '<li id="global-menu-news" class="selected"><a class="symbol" href="/notifications"><span class="badge" style="display: none;">0</span></a></li>';
@@ -63,7 +63,7 @@ function form_top_bar($cvid, $nickname, $pfp, $page) {
 
 function ftbnli($page) {
 		$html1 = '<menu id="global-menu">
-<li id="global-menu-logo"><h1><a href="/"><img src="assets/img/main-logo.png" alt="Miiverse" style="width:115px;height:35px;"></a></h1></li>
+<li id="global-menu-logo"><h1><a href="/"><img src="assets/img/main-logo.png" alt="Miiverse" style="width:115px;height:40px;"></a></h1></li>
 	<li id="global-menu-list">
 	<ul>';
 	$html3 = '<li id="global-menu-login">
