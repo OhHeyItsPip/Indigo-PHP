@@ -15,3 +15,5 @@ Indigo's newer source, written in Golang, can be found here https://github.com/P
 # Note: Do NOT try and "revive" Indigo, or any Miiverse clone. 
 
 [![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)](https://forthebadge.com)
+
+Also, this project is under the Creative Commons Attribution-NonCommercial (CC-BY-NC) license. 
