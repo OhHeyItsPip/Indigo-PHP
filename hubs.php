@@ -20,8 +20,7 @@ if($row['title_by'] == 1) {
 }
 
 $ansql = "SELECT posts.text, posts.date_time, posts.feeling_id, posts.post_image, posts.id, users.user_name, users.user_level, replies.reply_post FROM posts, users, replies WHERE  = users.user_id = posts.owner ORDER BY id DESC limit 100";
-$aresult = mysqli_query($db,$ansql);
-$counting = mysqli_num_rows($aresult);
+$counting = mysqli_query($db,$ansql);
 ?>
  <html lang="en" data-google-analytics-tracking-id="UA-68779773-1" prefix="og: http://ogp.me/ns#"><head>
     <meta charset="utf-8">
@@ -55,45 +54,6 @@ $counting = mysqli_num_rows($aresult);
     <link rel="apple-touch-icon" sizes="72x72" href="https://d13ph7xrk1ee39.cloudfront.net/img/apple-touch-icon-72x72.png?s4ECPF96pvErA7s03oG3gQ">
     <link rel="apple-touch-icon" sizes="144x144" href="https://d13ph7xrk1ee39.cloudfront.net/img/apple-touch-icon-144x144.png?Cp5sZwpS_1aly-SFq8AeIA">
     <link rel="stylesheet" type="text/css" href="https://d13ph7xrk1ee39.cloudfront.net/css/offdevice.css?uv6UeRmkC2ICaNONOZ_PvQ">
-    <script async="" type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script><script src="https://d13ph7xrk1ee39.cloudfront.net/js/complete-en.js?1N1ndxANMmLssb4bwyPDvQ"></script>
-      
-      <script type="text/javascript">
-        var googletag = googletag || {};
-        googletag.cmd = googletag.cmd || [];
-        (function() {
-          var gads = document.createElement('script');
-          gads.async = true;
-          gads.type = 'text/javascript';
-          var useSSL = 'https:' == document.location.protocol;
-          gads.src = (useSSL ? 'https:' : 'http:') +
-            '//www.googletagservices.com/tag/js/gpt.js';
-          var node = document.getElementsByTagName('script')[0];
-          node.parentNode.insertBefore(gads, node);
-        })();
-      </script>        <script type="application/json" class="js-ad-slot-spec" data-spec="{&quot;laptop_size&quot;:[300,250],&quot;tablet_size&quot;:[468,60],&quot;smartphone_size&quot;:[320,100],&quot;ad_key&quot;:&quot;div-gpt-ad-1440383593758-0&quot;,&quot;ad_unit_path&quot;:&quot;/94393651/miiverse-menu-community&quot;}"></script>      <script type="text/javascript">
-        googletag.cmd.push(function() {
-          googletag.pubads().setTagForChildDirectedTreatment(1);
-
-          var slotSpecs = document.querySelectorAll('.js-ad-slot-spec');
-          for (var i = 0; i < slotSpecs.length; i++) {
-            var adSpec = JSON.parse(slotSpecs[i].getAttribute('data-spec'));
-
-            var mapping = googletag.sizeMapping().
-               addSize([960, 0], adSpec.laptop_size).
-               addSize([640, 0], adSpec.tablet_size).
-               addSize([  0, 0], adSpec.smartphone_size).
-               build();
-
-            googletag.defineSlot(adSpec.ad_unit_path, [[320, 100], [300, 250]], adSpec.ad_key)
-              .addService(googletag.pubads())
-              .defineSizeMapping(mapping);
-          }
-
-          googletag.pubads().enableSingleRequest();
-          googletag.enableServices();
-        });
-      </script>  </head>
-
   <body class="community-top guest" data-token="" data-static-root="Static/img">
 <body class="guest-top guest" data-token="" data-static-root="https://d13ph7xrk1ee39.cloudfront.net/">
     <div id="wrapper">

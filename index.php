@@ -9,42 +9,6 @@ $cinfo = $db->query("SELECT * FROM titles");
 <?php 
 formHeaders('Hubs | Indigo');
 ?>
-
-<script>var googletag = googletag || {};
-        googletag.cmd = googletag.cmd || [];
-        (function() {
-          var gads = document.createElement('script');
-          gads.async = true;
-          gads.type = 'text/javascript';
-          var useSSL = 'https:' == document.location.protocol;
-          gads.src = (useSSL ? 'https:' : 'http:') +
-            '//www.googletagservices.com/tag/js/gpt.js';
-          var node = document.getElementsByTagName('script')[0];
-          node.parentNode.insertBefore(gads, node);
-        })();
-      </script>        <script type="application/json" class="js-ad-slot-spec" data-spec="{&quot;laptop_size&quot;:[300,250],&quot;tablet_size&quot;:[468,60],&quot;smartphone_size&quot;:[320,100],&quot;ad_key&quot;:&quot;div-gpt-ad-1438756213573-1&quot;,&quot;ad_unit_path&quot;:&quot;/94393651/miiverse-communities-top&quot;}"></script>        <script type="application/json" class="js-ad-slot-spec" data-spec="{&quot;laptop_size&quot;:[300,250],&quot;tablet_size&quot;:[468,60],&quot;smartphone_size&quot;:[320,100],&quot;ad_key&quot;:&quot;div-gpt-ad-1438756213573-0&quot;,&quot;ad_unit_path&quot;:&quot;/94393651/miiverse-communities-bottom&quot;}"></script>      <script type="text/javascript">
-        googletag.cmd.push(function() {
-          googletag.pubads().setTagForChildDirectedTreatment(1);
-
-          var slotSpecs = document.querySelectorAll('.js-ad-slot-spec');
-          for (var i = 0; i < slotSpecs.length; i++) {
-            var adSpec = JSON.parse(slotSpecs[i].getAttribute('data-spec'));
-
-            var mapping = googletag.sizeMapping().
-               addSize([960, 0], adSpec.laptop_size).
-               addSize([640, 0], adSpec.tablet_size).
-               addSize([  0, 0], adSpec.smartphone_size).
-               build();
-
-            googletag.defineSlot(adSpec.ad_unit_path, [[320, 100], [300, 250]], adSpec.ad_key)
-              .addService(googletag.pubads())
-              .defineSizeMapping(mapping);
-          }
-
-          googletag.pubads().enableSingleRequest();
-          googletag.enableServices();
-        });
-      </script> </head>
   <div id="wrapper" <?php if(!$_SESSION['loggedin']) { echo 'class="guest"'; } ?>>
 <div id="sub-body">
   <?php
