@@ -49,7 +49,7 @@ function form_top_bar($cvid, $nickname, $pfp, $page) {
 
 	$db = mysqli_connect('localhost','root','','indigo');
 
-	$notifs = $db->query("SELECT * FROM notifs WHERE notif_to = '".$_SESSION['ciiverseid']."' ORDER BY id DESC LIMIT 50");
+	$notifs = $db->query("SELECT * FROM notifs WHERE notif_to = '".$_SESSION['user_id']."' ORDER BY id DESC LIMIT 50");
   $notif_count = $notifs;
 	
 	$pfp = user_pfp($cvid,0);
@@ -91,7 +91,7 @@ function form_top_bar($cvid, $nickname, $pfp, $page) {
   <li><a href="/rules" class="symbol my-menu-guide"><span>Code of Conduct</span></a></li>
 	'.($user['user_level'] > 0 ? '<li><a class="symbol my-menu-miiverse-setting" href="/database.php"><span>Indigo DataBase</span></a></li>' : '').
 	'</menu>';
-	$html7 = '</li>';
+  $html7 = '</li>';
 	$finals = "$html1 $html2 $html3 $activity $html4 $html5 $html6 $html7";
 	return $finals;
 }

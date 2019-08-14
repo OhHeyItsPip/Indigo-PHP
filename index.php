@@ -41,12 +41,6 @@ formHeaders('Hubs | Indigo');
       <div class="digest test-topic-digest">
       </div>
     </div>  
-  <div id="div-gpt-ad-1438756213573-1" class="adx test-adx">
-    <span class="adx-label">Advertisement</span>
-  <script type="text/javascript">
-  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438756213573-1'); });
-  </script>
-  </div>
 </div>
 </div>
   <div class="community-main">
@@ -57,12 +51,12 @@ formHeaders('Hubs | Indigo');
 			<?php
 			 while($infoc = mysqli_fetch_array($cinfo)) {
 				 			if($infoc['perm'] ==is_null(0)) {
-        echo ' <li id="community-6437256809005279207" class="trigger test-community-list-item " data-href="/communities/'.$infoc['title_id'].'" tabindex="0">
+        echo ' <li id="community-6437256809005279207" class="trigger test-community-list-item " style="padding: 0px 0px 0px 0px;" data-href="/communities/'.$infoc['title_id'].'" tabindex="0">
 		<img src="'.$infoc['title_banner'].'" class="community-list-cover">
   <div class="community-list-body">
   <span class="icon-container"><img src="'.$infoc['title_icon'].'" class="icon"></span>
   <div class="body">
-      <a class="title" href="/titles/'.$infoc['title_id'].'" tabindex="-1">'.$infoc['title_name'].' Hub</a>
+      <a class="title" style="padding: 0px 0px 0px 0px;"href="/titles/'.$infoc['title_id'].'" tabindex="-1">'.$infoc['title_name'].' Hub</a>
 	<span class="platform-tag"><img src="assets/img/general-tag.png"</span>
 	<span class="text">General Hubs</span>
       </li>
