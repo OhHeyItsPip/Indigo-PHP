@@ -24,6 +24,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 	if(!isset($err)) {
 
 		$_SESSION['user_id'] = $users['user_id'];
+		$_SESSION['user_face'] = $users['user_face'];
+		$_SESSION['user_name'] = $users['user_name'];
 		$_SESSION['loggedin'] = true;
 
 		header('location: /');

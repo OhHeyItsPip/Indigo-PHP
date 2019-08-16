@@ -10,17 +10,52 @@ function formHeaders($title) {
 <script type="text/javascript" src="assets/js/complete-en.js"></script>';
 }
 
+function user_pfp($cvid,$feeling) {
+  global $db;
+  $sql = "SELECT cvid, pfp, nnid, pfp_type, mii_hash FROM users WHERE user_id = '".mysqli_real_escape_string($db,$cvid)."'";
+  $query = mysqli_query($db,$sql);
+  $user = $query;
+  if($feeling == 0) {
+    $feel = 'normal';
+  }elseif($feeling == 1) {
+    $feel = 'happy';
+  }elseif($feeling == 2) {
+    $feel = 'like';
+  }elseif($feeling == 3) {
+    $feel = 'surprised';
+  }elseif($feeling == 4) {
+    $feel = 'frustrated';
+  }elseif($feeling == 5) {
+    $feel = 'puzzled';
+  }else{
+    $feel = 'normal';
+  }
+  if($user['pfp_type'] == 1) {
+    if(empty($user['mii_hash'])) {
+    return '/img/defult_pfp_'.$feel.'.png';
+    } else {
+        return 'https://mii-secure.cdn.nintendo.net/'.$user['mii_hash'].'_'.$feel.'_face.png';
+    }
+  } else {
+  if(!empty($user['pfp'])) {
+  return $user['pfp']; } else {
+  return '/img/defult_pfp_'.$feel.'.png'; 
+  };
+}
+}
+
 function form_top_bar($cvid, $nickname, $pfp, $page) {
 	global $user;
 
+	$db = mysqli_connect('localhost','root','','indigo');
+
+	$notifs = $db->query("SELECT * FROM notifs WHERE notif_to = '".$_SESSION['user_id']."' ORDER BY id DESC LIMIT 50");
+  $notif_count = $notifs;
+	
 	$pfp = user_pfp($cvid,0);
 
-	if($page == 'user') {
-		global $userid;
-	}
-
-	$html1 = '<menu id="global-menu"><li id="global-menu-logo"><h1><a href="/"><img src="assets/img/main-logo.png" alt="Miiverse" style="width:115px;height:40px;></a></h1></li><li id="global-menu-list">
-	<ul>';
+	$html1 = '<menu id="global-menu"><li id="global-menu-logo"><h1><a href="/"><img src="assets/img/main-logo.png" alt="Miiverse" style="width:115px;height:40px;"></a></h1>
+	';
 	if($page == 'user') {
 		if($cvid == $userid) {
 	$html2 = '<li id="global-menu-mymenu" class="selected"><a href="/users/'. $cvid .'"><span class="icon-container ';
@@ -35,7 +70,7 @@ function form_top_bar($cvid, $nickname, $pfp, $page) {
   } else {
     $activity = '<li id="global-menu-feed"><a href="/feed" class="symbol"><span>News Feed</span></a></li>';
   }
-				 if($user[''] > 2) {$html3 = 'official-user"><img src="'.$pfp.'"></span><span>User Page</span></a></li>';} else {
+				 if($user['user_level'] > 2) {$html3 = 'official-user"><img src="'.$pfp.'"></span><span>User Page</span></a></li>';} else {
 					$html3 = '"><img src="'.$pfp.'"></span><span>User Page</span></a></li>';
 				}
 			if($page == 'communities') {
@@ -56,7 +91,7 @@ function form_top_bar($cvid, $nickname, $pfp, $page) {
   <li><a href="/rules" class="symbol my-menu-guide"><span>Code of Conduct</span></a></li>
 	'.($user['user_level'] > 0 ? '<li><a class="symbol my-menu-miiverse-setting" href="/database.php"><span>Indigo DataBase</span></a></li>' : '').
 	'</menu>';
-	$html7 = '</li>';
+  $html7 = '</li>';
 	$finals = "$html1 $html2 $html3 $activity $html4 $html5 $html6 $html7";
 	return $finals;
 }
@@ -67,7 +102,7 @@ function ftbnli($page) {
 	<li id="global-menu-list">
 	<ul>';
 	$html3 = '<li id="global-menu-login">
-            <form id="login_form" action="/auth/forward" method="post">
+            <form id="login_form" action="/signin" method="post">
               <input type="hidden" name="location" value="/">
               <input type="image" alt="Sign in" src="assets/img/signin_base.png">
             </form>
@@ -151,5 +186,7 @@ function humanTiming($time) {
     $url = str_replace('https://youtu.be/', '', $url);
     $url = str_replace('https://m.youtube.com/watch?v=', '', $url);
     return $url;
-  }
+	}
+
+
 ?>

@@ -4,5 +4,7 @@ RewriteEngine on
 
 RewriteRule ^signup$ signup.php
 RewriteRule ^signin$ signin.php
+RewriteRule ^logout$ logout.php
+RewriteRule ^titles/([0-9]+)$ hubs.php?cid=$1
 
 php_value date.timezone "America/New_York"

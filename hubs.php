@@ -15,87 +15,20 @@ $banner = $row['title_banner'];
   exit("The community could not be found.");
 }
 
+include('lib/htm.php');
+
 if($row['title_by'] == 1) {
   exit("This community is no longer available.");
 }
 
 $ansql = "SELECT posts.text, posts.date_time, posts.feeling_id, posts.post_image, posts.id, users.user_name, users.user_level, replies.reply_post FROM posts, users, replies WHERE  = users.user_id = posts.owner ORDER BY id DESC limit 100";
-$aresult = mysqli_query($db,$ansql);
-$counting = mysqli_num_rows($aresult);
+$counting = mysqli_query($db,$ansql);
 ?>
- <html lang="en" data-google-analytics-tracking-id="UA-68779773-1" prefix="og: http://ogp.me/ns#"><head>
-    <meta charset="utf-8">
-<title><?php echo $name; ?> Hub - Indigo</title>
-    <meta http-equiv="content-style-type" content="text/css">
-	<link rel="stylesheet" type="text/css" href="assets/css/offdevice.css">
-		<script type="text/javascript" src="assets/js/complete-en.js"></script>
-    <meta http-equiv="content-script-type" content="text/javascript">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-title" content="Miiverse">
-    <meta name="description" content="Miiverse is a service that lets you communicate with other players from around the world. It is accessible via Wii U and systems in the Nintendo 3DS family.">
-    <meta name="keywords" content="Miiverse,ミーバース,任天堂,Nintendo,Wii U,3DS">
-    <link rel="alternate" hreflang="x-default" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637">      <link rel="alternate" hreflang="ja-JP" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=ja-JP">
-          <link rel="alternate" hreflang="en-US" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=en-US">
-          <link rel="alternate" hreflang="es-MX" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=es-MX">
-          <link rel="alternate" hreflang="fr-CA" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=fr-CA">
-          <link rel="alternate" hreflang="pt-BR" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=pt-BR">
-          <link rel="alternate" hreflang="en-GB" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=en-GB">
-          <link rel="alternate" hreflang="fr-FR" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=fr-FR">
-          <link rel="alternate" hreflang="es-ES" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=es-ES">
-          <link rel="alternate" hreflang="de-DE" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=de-DE">
-          <link rel="alternate" hreflang="it-IT" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=it-IT">
-          <link rel="alternate" hreflang="nl-NL" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=nl-NL">
-          <link rel="alternate" hreflang="pt-PT" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=pt-PT">
-          <link rel="alternate" hreflang="ru-RU" href="https://miiverse.nintendo.net/titles/14866558072985245728/14866558073038702637?locale.lang=ru-RU">
-    
-    <link rel="shortcut icon" href="https://d13ph7xrk1ee39.cloudfront.net/img/favicon.ico?mM9KNw_M04SIP2y9VGgdNA">
-    <link rel="apple-touch-icon" sizes="57x57" href="https://d13ph7xrk1ee39.cloudfront.net/img/apple-touch-icon-57x57.png?Ag2tdrIcl30F8RewVb7MpA">
-    <link rel="apple-touch-icon" sizes="114x114" href="https://d13ph7xrk1ee39.cloudfront.net/img/apple-touch-icon-114x114.png?np5stZwxPtIFygwO41QXAA">
-    <link rel="apple-touch-icon" sizes="72x72" href="https://d13ph7xrk1ee39.cloudfront.net/img/apple-touch-icon-72x72.png?s4ECPF96pvErA7s03oG3gQ">
-    <link rel="apple-touch-icon" sizes="144x144" href="https://d13ph7xrk1ee39.cloudfront.net/img/apple-touch-icon-144x144.png?Cp5sZwpS_1aly-SFq8AeIA">
-    <link rel="stylesheet" type="text/css" href="https://d13ph7xrk1ee39.cloudfront.net/css/offdevice.css?uv6UeRmkC2ICaNONOZ_PvQ">
-    <script async="" type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script><script src="https://d13ph7xrk1ee39.cloudfront.net/js/complete-en.js?1N1ndxANMmLssb4bwyPDvQ"></script>
-      
-      <script type="text/javascript">
-        var googletag = googletag || {};
-        googletag.cmd = googletag.cmd || [];
-        (function() {
-          var gads = document.createElement('script');
-          gads.async = true;
-          gads.type = 'text/javascript';
-          var useSSL = 'https:' == document.location.protocol;
-          gads.src = (useSSL ? 'https:' : 'http:') +
-            '//www.googletagservices.com/tag/js/gpt.js';
-          var node = document.getElementsByTagName('script')[0];
-          node.parentNode.insertBefore(gads, node);
-        })();
-      </script>        <script type="application/json" class="js-ad-slot-spec" data-spec="{&quot;laptop_size&quot;:[300,250],&quot;tablet_size&quot;:[468,60],&quot;smartphone_size&quot;:[320,100],&quot;ad_key&quot;:&quot;div-gpt-ad-1440383593758-0&quot;,&quot;ad_unit_path&quot;:&quot;/94393651/miiverse-menu-community&quot;}"></script>      <script type="text/javascript">
-        googletag.cmd.push(function() {
-          googletag.pubads().setTagForChildDirectedTreatment(1);
-
-          var slotSpecs = document.querySelectorAll('.js-ad-slot-spec');
-          for (var i = 0; i < slotSpecs.length; i++) {
-            var adSpec = JSON.parse(slotSpecs[i].getAttribute('data-spec'));
-
-            var mapping = googletag.sizeMapping().
-               addSize([960, 0], adSpec.laptop_size).
-               addSize([640, 0], adSpec.tablet_size).
-               addSize([  0, 0], adSpec.smartphone_size).
-               build();
-
-            googletag.defineSlot(adSpec.ad_unit_path, [[320, 100], [300, 250]], adSpec.ad_key)
-              .addService(googletag.pubads())
-              .defineSizeMapping(mapping);
-          }
-
-          googletag.pubads().enableSingleRequest();
-          googletag.enableServices();
-        });
-      </script>  </head>
-
-  <body class="community-top guest" data-token="" data-static-root="Static/img">
-<body class="guest-top guest" data-token="" data-static-root="https://d13ph7xrk1ee39.cloudfront.net/">
+<html lang="en" data-google-analytics-tracking-id="UA-68779773-1" prefix="og: http://ogp.me/ns#">
+<?php 
+formHeaders("$name Hub | Indigo");
+?>
+<body class="guest-top guest">
     <div id="wrapper">
       <div id="sub-body">
         <menu id="global-menu">
@@ -172,9 +105,6 @@ $counting = mysqli_num_rows($aresult);
   </div>
   <div id="div-gpt-ad-1440383593758-0" class="adx test-adx">
     <span class="adx-label">Advertisement</span>
-  <script type="text/javascript">
-  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1440383593758-0'); });
-  </script>
   </div>
 </div>
 
