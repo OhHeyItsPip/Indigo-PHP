@@ -1,0 +1,35 @@
+php_value display_errors 1
+
+RewriteEngine on
+
+RewriteRule ^signup$ signup.php
+RewriteRule ^signin$ signin.php
+RewriteRule ^logout$ logout.php
+RewriteRule ^titles/([0-9]+)$ hubs.php?cid=$1
+RewriteRule ^users/([A-Za-z0-9_-]+)$ profile.php?user_name=$1&page=1 [QSA,L]
+RewriteRule ^news$ hubs.php?cid=1
+RewriteRule ^post/([0-9]+)$ posts.php?pid=$1
+RewriteRule ^notifications$ notifications.php
+RewriteRule ^delete_post/([0-9]+)$ delete_post.php?pid=$1
+RewriteRule ^edit/profile$ users/edit_profile.php
+RewriteRule ^users/([A-Za-z0-9_-]+)/empathies$ profile.php?user_name=$1&page=2 [QSA,L]
+RewriteRule ^users/([A-Za-z0-9_-]+)/replies$ profile.php?user_name=$1&page=3 [QSA,L]
+RewriteRule ^users/([A-Za-z0-9_-]+)/deleted$ profile.php?user_name=$1&page=4 [QSA,L]
+RewriteRule ^users/([A-Za-z0-9_-]+)/followers$ profile.php?user_name=$1&page=5 [QSA,L]
+RewriteRule ^users/([A-Za-z0-9_-]+)/following$ profile.php?user_name=$1&page=6 [QSA,L]
+RewriteRule ^communities/favorites$ favorites.php
+RewriteRule ^feed$ feed.php
+RewriteRule ^rules$ rules.php
+RewriteRule ^use$ use.php
+RewriteRule ^faq$ faq.php
+RewriteRule ^database$ database.php
+RewriteRule ^games$ games.php
+RewriteRule ^logout$ logout.php
+ErrorDocument 400 /errors/400.php
+ErrorDocument 401 /errors/401.php
+ErrorDocument 402 /errors/402.php
+ErrorDocument 403 /errors/403.php
+ErrorDocument 404 /errors/404.php
+ErrorDocument 500 /errors/500.php
+ErrorDocument 503 /errors/503.php
+php_value date.timezone "America/New_York"

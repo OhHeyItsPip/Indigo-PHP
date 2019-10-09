@@ -13,7 +13,7 @@ formHeaders('Hubs | Indigo');
 <div id="sub-body">
   <?php
   if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-  echo form_top_bar($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_face'], 'communities');
+  echo form_top_bar($_SESSION['user_name'], $_SESSION['user_name'], $_SESSION['user_face'], 'communities');
   } else { 
   echo ftbnli('communities'); }
         ?>
@@ -73,9 +73,9 @@ formHeaders('Hubs | Indigo');
     </ul>
     <div id="community-guide-footer">
       <div id="guide-menu">
-        <a href="/guide/terms" class="arrow-button"><span>Use of Indigo</span></a>
-        <a href="/guide/" class="arrow-button"><span>Indigo Code of Conduct</span></a>
-        <a href="/guide/faq" class="arrow-button"><span>Frequently Asked Questions (FAQ)</span></a>
+        <a href="/use" class="arrow-button"><span>Use of Indigo</span></a>
+        <a href="/rules" class="arrow-button"><span>Indigo Code of Conduct</span></a>
+        <a href="/faq" class="arrow-button"><span>Frequently Asked Questions (FAQ)</span></a>
         <a href="http://www.nintendo.com/wiiu/built-in-software/#/miiverse" class="arrow-button"><span>Details about Indigo</span></a>
       </div>
     </div>
