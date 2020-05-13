@@ -1,6 +1,6 @@
 # **Indigo**
 
-What you're looking at is the most up to date version of Indigo's original PHP codebase that could be salvaged. I'm only uploading this because I support open source. Don't bother trying to "revive" it, it's unfinished, and will stay that way.
+What you're looking at is the most up to date version of Indigo's original PHP codebase that could be salvaged. I'm only uploading this because I support open source. Don't bother trying to "revive" it, it's unfinished, and will stay that way. I tried to add a few things for the fun of it almost a year ago but the code we put together is a mess and I'm really bad at PHP.
 
 # **"What's Indigo?"**
 
@@ -12,7 +12,7 @@ Initially, we used PHP as our code, until we merged with another clone, slaj/nov
 
 Indigo's newer source, written in Golang, can be found here https://github.com/PF2M/Indigo
 
-# Note: Do NOT try and "revive" Indigo, or any Miiverse clone. 
+# Note: Do NOT try and "revive" Indigo, or any Miiverse clone. Please just let these memories die 
 
 [![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)](https://forthebadge.com)
 
